@@ -41,6 +41,11 @@ jobs:
          --output data/processed/featured_house_data.csv  \
          --preprocessor models/trained/preprocessor.pkl
 
+    - name: Start MLflow Server
+      run: |
+        docker-compose -f deployment/mlflow/docker-compose.yaml up -d
+        sleep 10  # Wait for the server to start
+    
     - name: Train the Model
       run: |
         python src/models/train_model.py \
@@ -49,6 +54,9 @@ jobs:
          --models-dir models \
          --mlflow-tracking-uri http://localhost:5555
 
-
+    - name: Cleaning Up
+      run: |
+        docker-compose -f deployment/mlflow/docker-compose.yaml down
+        docker rm mlflow-tracking-server
               
 
