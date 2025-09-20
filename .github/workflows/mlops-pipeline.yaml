@@ -1,7 +1,7 @@
 # .github/workflows/mlops-pipeline.yml
 name: MLOps Pipeline
 on:
- push:
+ workflow_dispatch:
   branches: [ main ]
   tags: [ 'v*.*.*' ]
  pull_request:
@@ -93,7 +93,7 @@ jobs:
         python src/models/train_model.py \
         --config configs/model_config.yaml \
         --data data/processed/featured_house_data.csv \
-        --models-dir models --mlflowtracking-uri http://localhost:5000
+        --models-dir models --mlflowtracking-url http://localhost:5000
 
     - name: Upload trained model
       uses: actions/upload-artifact@v4
