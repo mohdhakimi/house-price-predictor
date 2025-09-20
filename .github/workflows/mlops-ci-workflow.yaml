@@ -57,6 +57,6 @@ jobs:
     - name: Cleaning Up MLflow Server
       run: |
         docker compose -f deployment/mlflow/docker-compose.yaml down
-        docker rm mlflow-tracking-server
+    
               
 
