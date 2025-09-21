@@ -158,7 +158,7 @@ jobs:
       run: |
         COMMIT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
         echo "COMMIT_SHA=$COMMIT_SHA" >> $GITHUB_ENV
-        docker tag docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-predictor:latest docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:$COMMIT_SHA
+        docker tag docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:latest docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:$COMMIT_SHA
         docker push docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:$COMMIT_SHA
         docker push docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:latest
 
