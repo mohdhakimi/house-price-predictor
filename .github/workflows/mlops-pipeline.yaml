@@ -155,9 +155,12 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     
     - name: Build and push Docker image
+      run: |
+        echo "Setting up Docker image tag"
+        COMMIT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
       uses: docker/build-push-action@v5
       with:
         context: .
         file: ./Dockerfile
         push: true
-        tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-pricemodel:$(echo ${{ github.sha }} | cut -c1-7)
+        tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-pricemodel:$COMMIT_SHA
