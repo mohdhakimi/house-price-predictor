@@ -154,7 +154,7 @@ jobs:
         username: ${{ vars.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     
-    - neme: Setting up shorter Docker image tag
+    - name: Setting up shorter Docker image tag
       run: |
         COMMIT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
         echo "COMMIT_SHA=$COMMIT_SHA" >> $GITHUB_ENV
