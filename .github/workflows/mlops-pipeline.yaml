@@ -153,6 +153,10 @@ jobs:
         registry: docker.io
         username: ${{ vars.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build Docker Image
+      run: |
+        docker build -t docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:latest .
     
     - name: Setting up shorter Docker image tag, build and push Docker image
       run: |
