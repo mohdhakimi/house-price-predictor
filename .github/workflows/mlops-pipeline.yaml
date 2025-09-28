@@ -1,7 +1,7 @@
 # .github/workflows/mlops-pipeline.yml
 name: MLOps Pipeline
 on:
- workflow_dispatch:
+ #workflow_dispatch:
   inputs:
     run_all:
      description: 'Run all jobs'
@@ -23,7 +23,9 @@ on:
     types: [created]
     branches: [ main ]
     tags: [ 'v*.*.*' ]
-  
+  push:
+    branches: [ main ]
+    tags: [ 'v*.*.*' ]
 
 jobs:
  data-processing:
