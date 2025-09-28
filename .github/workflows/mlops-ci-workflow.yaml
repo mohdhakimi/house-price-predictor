@@ -2,7 +2,7 @@ name: MLops CI Workflow
 
 on:
   workflow_dispatch:{}
-    branches:
+   branches:
       - main
   
 jobs:

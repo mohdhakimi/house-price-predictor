@@ -36,7 +36,7 @@ app.add_middleware(
 )
 
 # Instrumentation for Prometheus
-Instrumentator().instrument(app).expose(app)
+Instrumentator().instrument(app).expose(app, endpoint="/metrics")
 
 # Start Prometheus metrics server on port 9100 in a background thread
 def start_metrics_server():
