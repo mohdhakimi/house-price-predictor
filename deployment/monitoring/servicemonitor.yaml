@@ -12,7 +12,7 @@ spec:
     matchNames:
       - default # Change this if your service is in a different namespace
   endpoints:
-  - port: metrics # This should match the port name defined in your service
+  - port: "8000" # This should match the port name defined in your service
     path: /metrics # Adjust this if your application exposes metrics at a different path
     interval: 15s
     scrapeTimeout: 10s
